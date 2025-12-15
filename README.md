@@ -1,90 +1,92 @@
-# 🌌 Gaia Analyzer
+# 🌌 Gaia Stellar Analyzer
 
-A complete end-to-end pipeline for querying Gaia DR3 stars, generating HR diagrams, performing clustering, cross-matching with TESS observations, analyzing light curves, and estimating stellar parameters.
-
-This project serves as a compact research toolkit for stellar astrophysics, Gaia–TESS data science, and time-series analysis.
-
----
-
-## ✨ Overview
-
-**Gaia Analyzer** provides a unified workflow to:
-
-- Query **Gaia DR3** data using astroquery  
-- Visualize the **Hertzsprung–Russell (HR) diagram**  
-- Perform **machine learning clustering** (K-Means, DBSCAN)  
-- Cross-match **Gaia → DR2 → TIC**  
-- Download and analyze **TESS light curves**  
-- Perform **Lomb–Scargle period analysis**  
-- Generate **phase-folded light curves**  
-- Compute **stellar parameters** such as temperature, luminosity, radius, mass, and approximate age  
+A complete mini–pipeline for exploring stellar populations using **Gaia photometry** and analyzing stellar variability with **TESS light curves**.  
+The project includes HR diagram construction, clustering methods, period detection, and phase-folded light curve visualization.
 
 ---
 
-## 🚀 Features
+# 📍 Gaia HR Diagram Analysis
 
-### ⭐ Gaia DR3 Query Tools
-- Query stars by **source_id**, magnitude range, or sky region  
-- Clean and filter Gaia data  
-- Compute **parallax-based distance**  
-- Derive **absolute magnitude (M_G)**  
+## ⭐ K-Means Clustering
+Identifies major stellar groups (main sequence, red giants, etc.) in BP–RP vs. absolute magnitude space.
 
----
-
-### ⭐ HR Diagram Module
-- HR diagram using Gaia BP–RP vs. M_G  
-- Temperature-colored diagrams  
-- Density maps  
-- Optional region labels and stylistic enhancements  
+<img src="docs/hr_kmeans.png" width="500">
 
 ---
 
-### ⭐ Machine Learning (Module 1)
-- Feature engineering (color index, absolute magnitude)  
-- Standardization + PCA  
-- **K-Means** clustering  
-- **DBSCAN** clustering (identifies white dwarfs and outliers)  
-- Cluster-labeled HR diagrams  
+## ⭐ DBSCAN Clustering
+Density-based clustering reveals dense stellar groups while naturally ignoring outliers.
+
+<img src="docs/hr_dbscan.png" width="500">
 
 ---
 
-### ⭐ Gaia ⇨ TESS Crossmatch (Module 2)
-- Convert **Gaia DR3 → DR2 → TIC**  
-- Find matching TESS sources  
-- Download **PDCSAP light curves** using Lightkurve  
-- Generate:
-  - Raw light curve  
-  - Cleaned/detrended light curve  
-  - Lomb–Scargle periodogram  
-  - Phase-folded light curve  
+# ✨ TESS Light Curve Analysis
+
+## ⭐ Raw TESS Light Curve
+Unprocessed brightness variations from TESS.
+
+<img src="docs/tess_raw_lightcurve.png" width="600">
 
 ---
 
-### ⭐ Stellar Parameter Estimation (Module 3)
-Based on Gaia photometry and empirical relations:
+## ⭐ Detrended TESS Light Curve
+Removes long-term trends and prepares the data for period analysis.
 
-- Effective Temperature (Teff)  
-- Luminosity (L/L☉)  
-- Radius (R/R☉)  
-- Mass (M/M☉)  
-- Approximate age estimate  
+<img src="docs/tess_detrended_lightcurve.png" width="600">
 
 ---
-## 📊 HR Diagrams
 
-### 1️⃣ Basic HR Diagram
-<img src="docs/hr_basic.png" width="500">
+# ⏳ Period Search
 
-### 2️⃣ Temperature-Colored HR Diagram
-<img src="docs/hr_temperature.png" width="500">
+## ⭐ Lomb–Scargle Periodogram
+Primary period detection over a standard frequency range.
 
-### 3️⃣ KDE Density HR Diagram
-<img src="docs/hr_density_kde.png" width="500">
+<img src="docs/tess_periodogram.png" width="600">
 
-### 4️⃣ Stellar Regions HR Diagram
-<img src="docs/hr_stellar_regions.png" width="500">
+---
 
-### 5️⃣ Distance-Colored HR Diagram
-<img src="docs/hr_distance.png" width="500">
+## ⭐ Wide-Range Periodogram
+Explores long periods (0–1500 days), useful when searching for slow variability.
+
+<img src="docs/tess_periodogram_alt.png" width="600">
+
+---
+
+## ⭐ Filtered (Short-Period) Periodogram
+Focuses on short periods (0–100 days) to identify fast variability.
+
+<img src="docs/tess_periodogram_filtered.png" width="600">
+
+---
+
+# 🔄 Phase-Folded Light Curves
+
+## ⭐ Phase-Folded Light Curve (P = 0.00136 days)
+Displays periodic modulation using the strongest short-period peak.
+
+<img src="docs/tess_phase_folded.png" width="600">
+
+---
+
+## ⭐ Phase-Folded Light Curve (P = 0.07885 days)
+An additional candidate period revealed in the wide-range search.
+
+<img src="docs/tess_phase_folded_0.07885d.png" width="600">
+
+---
+
+# 🛰️ Summary
+
+This project demonstrates:
+- How to build HR diagrams from Gaia DR3
+- How to classify stars using unsupervised ML (K-Means, DBSCAN)
+- How to extract and clean TESS light curves
+- How to detect stellar variability using Lomb–Scargle periodograms
+- How to visualize periodicity through phase-folded light curves
+
+It serves as a compact, reproducible stellar-analysis pipeline suitable for learning, exploration, and future scientific development.
+
+---
 
 

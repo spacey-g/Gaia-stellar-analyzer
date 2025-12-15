@@ -88,5 +88,3 @@ Based on Gaia photometry and empirical relations:
 <img src="docs/example_plots/hr_distance.png" width="500">
 
 
-
-

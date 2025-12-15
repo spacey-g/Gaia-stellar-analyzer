@@ -73,18 +73,18 @@ Based on Gaia photometry and empirical relations:
 ## 📊 HR Diagrams
 
 ### 1️⃣ Basic HR Diagram
-<img src="docs/example_plots/hr_basic.png" width="500">
+<img src="docs/hr_basic.png" width="500">
 
 ### 2️⃣ Temperature-Colored HR Diagram
-<img src="docs/example_plots/hr_temperature.png" width="500">
+<img src="docs/hr_temperature.png" width="500">
 
 ### 3️⃣ KDE Density HR Diagram
-<img src="docs/example_plots/hr_density_kde.png" width="500">
+<img src="docs/hr_density_kde.png" width="500">
 
 ### 4️⃣ Stellar Regions HR Diagram
-<img src="docs/example_plots/hr_stellar_regions.png" width="500">
+<img src="docs/hr_stellar_regions.png" width="500">
 
 ### 5️⃣ Distance-Colored HR Diagram
-<img src="docs/example_plots/hr_distance.png" width="500">
+<img src="docs/hr_distance.png" width="500">
 
 
